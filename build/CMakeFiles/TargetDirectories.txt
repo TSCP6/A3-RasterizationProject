@@ -1,0 +1,6 @@
+C:/Users/12841/Desktop/none/Codes/Game/Solutions/A3-RasterizationProject/build/CMakeFiles/pretest1.dir
+C:/Users/12841/Desktop/none/Codes/Game/Solutions/A3-RasterizationProject/build/CMakeFiles/pretest2.dir
+C:/Users/12841/Desktop/none/Codes/Game/Solutions/A3-RasterizationProject/build/CMakeFiles/pretest3.dir
+C:/Users/12841/Desktop/none/Codes/Game/Solutions/A3-RasterizationProject/build/CMakeFiles/all-tests.dir
+C:/Users/12841/Desktop/none/Codes/Game/Solutions/A3-RasterizationProject/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/12841/Desktop/none/Codes/Game/Solutions/A3-RasterizationProject/build/CMakeFiles/ZERO_CHECK.dir

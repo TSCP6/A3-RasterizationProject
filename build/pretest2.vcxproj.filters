@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\12841\Desktop\none\Codes\Game\Solutions\A3-RasterizationProject\tests\pretest2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\12841\Desktop\none\Codes\Game\Solutions\A3-RasterizationProject\src\PPM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\12841\Desktop\none\Codes\Game\Solutions\A3-RasterizationProject\src\Triangle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\12841\Desktop\none\Codes\Game\Solutions\A3-RasterizationProject\src\Vec2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\12841\Desktop\none\Codes\Game\Solutions\A3-RasterizationProject\src\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\12841\Desktop\none\Codes\Game\Solutions\A3-RasterizationProject\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{BB68FE13-D2FA-3AFF-8D94-AC76D86D4255}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

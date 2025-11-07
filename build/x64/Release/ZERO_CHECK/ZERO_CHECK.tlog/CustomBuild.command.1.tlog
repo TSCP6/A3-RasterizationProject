@@ -1,0 +1,10 @@
+^C:\USERS\12841\DESKTOP\NONE\CODES\GAME\SOLUTIONS\A3-RASTERIZATIONPROJECT\BUILD\CMAKEFILES\692D7FB7452C913DF8ED35FE8247AD38\GENERATE.STAMP.RULE
+setlocal
+C:\Strawberry\c\bin\cmake.exe -SC:/Users/12841/Desktop/none/Codes/Game/Solutions/A3-RasterizationProject -BC:/Users/12841/Desktop/none/Codes/Game/Solutions/A3-RasterizationProject/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/12841/Desktop/none/Codes/Game/Solutions/A3-RasterizationProject/build/RasterizationTests.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
