@@ -10,9 +10,11 @@ set(INCLUDE_DIR "${PROJECT_SOURCE_DIR}/include")
 
 include_directories(${PROJECT_SOURCE_DIR}/include)
 
+# 排除 main.cpp，只包含库文件
 file(GLOB_RECURSE COMMON_SOURCES
     "${PROJECT_SOURCE_DIR}/src/*.cpp"
 )
+list(FILTER COMMON_SOURCES EXCLUDE REGEX ".*main\\.cpp$")
 
 message(STATUS "Found common sources:")
 foreach(src ${COMMON_SOURCES})
@@ -49,3 +51,15 @@ if(ALL_TESTS)
     add_dependencies(all-tests ${ALL_TESTS})
     message(STATUS "Total tests configured: ${ALL_TESTS}")
 endif()
+
+# 添加主程序目标
+add_executable(main_program
+    "${PROJECT_SOURCE_DIR}/src/main.cpp"
+    ${COMMON_SOURCES}
+)
+
+set_target_properties(main_program PROPERTIES
+    RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/build
+)
+
+message(STATUS "Main program configured")

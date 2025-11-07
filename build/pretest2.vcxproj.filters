@@ -4,7 +4,19 @@
     <ClCompile Include="C:\Users\12841\Desktop\none\Codes\Game\Solutions\A3-RasterizationProject\tests\pretest2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="C:\Users\12841\Desktop\none\Codes\Game\Solutions\A3-RasterizationProject\src\Camera.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\12841\Desktop\none\Codes\Game\Solutions\A3-RasterizationProject\src\Matrix.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\12841\Desktop\none\Codes\Game\Solutions\A3-RasterizationProject\src\MeshCube.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="C:\Users\12841\Desktop\none\Codes\Game\Solutions\A3-RasterizationProject\src\PPM.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\12841\Desktop\none\Codes\Game\Solutions\A3-RasterizationProject\src\Render.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="C:\Users\12841\Desktop\none\Codes\Game\Solutions\A3-RasterizationProject\src\Triangle.cpp">
@@ -13,7 +25,10 @@
     <ClCompile Include="C:\Users\12841\Desktop\none\Codes\Game\Solutions\A3-RasterizationProject\src\Vec2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\12841\Desktop\none\Codes\Game\Solutions\A3-RasterizationProject\src\main.cpp">
+    <ClCompile Include="C:\Users\12841\Desktop\none\Codes\Game\Solutions\A3-RasterizationProject\src\Vec3.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\12841\Desktop\none\Codes\Game\Solutions\A3-RasterizationProject\src\Vec4.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

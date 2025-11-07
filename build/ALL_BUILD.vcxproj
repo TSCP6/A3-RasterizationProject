@@ -173,6 +173,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
+    <ProjectReference Include="C:\Users\12841\Desktop\none\Codes\Game\Solutions\A3-RasterizationProject\build\main_program.vcxproj">
+      <Project>{80269408-2D0D-3D45-B5FE-41891DE112F7}</Project>
+      <Name>main_program</Name>
+    </ProjectReference>
     <ProjectReference Include="C:\Users\12841\Desktop\none\Codes\Game\Solutions\A3-RasterizationProject\build\pretest1.vcxproj">
       <Project>{3C4238D1-B8E6-3863-8805-30BADF664534}</Project>
       <Name>pretest1</Name>

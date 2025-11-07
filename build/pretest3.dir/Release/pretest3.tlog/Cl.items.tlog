@@ -1,5 +1,10 @@
 C:\Users\12841\Desktop\none\Codes\Game\Solutions\A3-RasterizationProject\tests\pretest3.cpp;C:\Users\12841\Desktop\none\Codes\Game\Solutions\A3-RasterizationProject\build\pretest3.dir\Release\pretest3.obj
+C:\Users\12841\Desktop\none\Codes\Game\Solutions\A3-RasterizationProject\src\Camera.cpp;C:\Users\12841\Desktop\none\Codes\Game\Solutions\A3-RasterizationProject\build\pretest3.dir\Release\Camera.obj
+C:\Users\12841\Desktop\none\Codes\Game\Solutions\A3-RasterizationProject\src\Matrix.cpp;C:\Users\12841\Desktop\none\Codes\Game\Solutions\A3-RasterizationProject\build\pretest3.dir\Release\Matrix.obj
+C:\Users\12841\Desktop\none\Codes\Game\Solutions\A3-RasterizationProject\src\MeshCube.cpp;C:\Users\12841\Desktop\none\Codes\Game\Solutions\A3-RasterizationProject\build\pretest3.dir\Release\MeshCube.obj
 C:\Users\12841\Desktop\none\Codes\Game\Solutions\A3-RasterizationProject\src\PPM.cpp;C:\Users\12841\Desktop\none\Codes\Game\Solutions\A3-RasterizationProject\build\pretest3.dir\Release\PPM.obj
+C:\Users\12841\Desktop\none\Codes\Game\Solutions\A3-RasterizationProject\src\Render.cpp;C:\Users\12841\Desktop\none\Codes\Game\Solutions\A3-RasterizationProject\build\pretest3.dir\Release\Render.obj
 C:\Users\12841\Desktop\none\Codes\Game\Solutions\A3-RasterizationProject\src\Triangle.cpp;C:\Users\12841\Desktop\none\Codes\Game\Solutions\A3-RasterizationProject\build\pretest3.dir\Release\Triangle.obj
 C:\Users\12841\Desktop\none\Codes\Game\Solutions\A3-RasterizationProject\src\Vec2.cpp;C:\Users\12841\Desktop\none\Codes\Game\Solutions\A3-RasterizationProject\build\pretest3.dir\Release\Vec2.obj
-C:\Users\12841\Desktop\none\Codes\Game\Solutions\A3-RasterizationProject\src\main.cpp;C:\Users\12841\Desktop\none\Codes\Game\Solutions\A3-RasterizationProject\build\pretest3.dir\Release\main.obj
+C:\Users\12841\Desktop\none\Codes\Game\Solutions\A3-RasterizationProject\src\Vec3.cpp;C:\Users\12841\Desktop\none\Codes\Game\Solutions\A3-RasterizationProject\build\pretest3.dir\Release\Vec3.obj
+C:\Users\12841\Desktop\none\Codes\Game\Solutions\A3-RasterizationProject\src\Vec4.cpp;C:\Users\12841\Desktop\none\Codes\Game\Solutions\A3-RasterizationProject\build\pretest3.dir\Release\Vec4.obj

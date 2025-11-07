@@ -322,10 +322,15 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="C:\Users\12841\Desktop\none\Codes\Game\Solutions\A3-RasterizationProject\tests\pretest1.cpp" />
+    <ClCompile Include="C:\Users\12841\Desktop\none\Codes\Game\Solutions\A3-RasterizationProject\src\Camera.cpp" />
+    <ClCompile Include="C:\Users\12841\Desktop\none\Codes\Game\Solutions\A3-RasterizationProject\src\Matrix.cpp" />
+    <ClCompile Include="C:\Users\12841\Desktop\none\Codes\Game\Solutions\A3-RasterizationProject\src\MeshCube.cpp" />
     <ClCompile Include="C:\Users\12841\Desktop\none\Codes\Game\Solutions\A3-RasterizationProject\src\PPM.cpp" />
+    <ClCompile Include="C:\Users\12841\Desktop\none\Codes\Game\Solutions\A3-RasterizationProject\src\Render.cpp" />
     <ClCompile Include="C:\Users\12841\Desktop\none\Codes\Game\Solutions\A3-RasterizationProject\src\Triangle.cpp" />
     <ClCompile Include="C:\Users\12841\Desktop\none\Codes\Game\Solutions\A3-RasterizationProject\src\Vec2.cpp" />
-    <ClCompile Include="C:\Users\12841\Desktop\none\Codes\Game\Solutions\A3-RasterizationProject\src\main.cpp" />
+    <ClCompile Include="C:\Users\12841\Desktop\none\Codes\Game\Solutions\A3-RasterizationProject\src\Vec3.cpp" />
+    <ClCompile Include="C:\Users\12841\Desktop\none\Codes\Game\Solutions\A3-RasterizationProject\src\Vec4.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="C:\Users\12841\Desktop\none\Codes\Game\Solutions\A3-RasterizationProject\build\ZERO_CHECK.vcxproj">

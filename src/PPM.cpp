@@ -7,14 +7,20 @@ PPM::PPM(int w, int h, int ss) : width(w), height(h), ss_factor(ss) {
     // resize function's second parameter fills the empty array members
     data.resize(w * h * 3, 255);
     hr_buffer.resize((w * ss) * (h * ss) * 3, 255);
+    depth_buffer.resize(w * h, std::numeric_limits<float>::infinity());
+    hr_depth_buffer.resize((w * ss) * (h * ss), std::numeric_limits<float>::infinity());
 }
 
 void PPM::BeginFrame() {
     std::fill(data.begin(), data.end(), static_cast<unsigned char>(255));
     std::fill(hr_buffer.begin(), hr_buffer.end(), static_cast<unsigned char>(255));
+    ClearDepthBuffer();
 }
 
-void PPM::EndFrame() {
+// assign all pixels' depth as infinity
+void PPM::ClearDepthBuffer() {
+    std::fill(depth_buffer.begin(), depth_buffer.end(), std::numeric_limits<float>::infinity());
+    std::fill(hr_depth_buffer.begin(), hr_depth_buffer.end(), std::numeric_limits<float>::infinity());
 }
 
 void PPM::ResolveSSAA() {
@@ -38,6 +44,33 @@ void PPM::ResolveSSAA() {
             }
         }
     }
+}
+
+bool PPM::SetPixelWithDepth(int x, int y, float depth, unsigned char r, unsigned char g, unsigned char b) {
+    if (ss_factor > 1) {
+        if (x >= 0 && x < width * ss_factor && y >= 0 && y < height * ss_factor) {
+            int index = ss_factor * width * y + x;
+            if (depth < hr_depth_buffer[index]) {
+                hr_depth_buffer[index] = depth;
+                hr_buffer[index * 3 + 0] = r;
+                hr_buffer[index * 3 + 1] = g;
+                hr_buffer[index * 3 + 2] = b;
+                return true;
+            }
+        }
+    } else {
+        if (x >= 0 && x < width && y >= 0 && y < height) {
+            int index = width * y + x;
+            if (depth < depth_buffer[index]) {
+                depth_buffer[index] = depth;
+                data[index * 3 + 0] = r;
+                data[index * 3 + 1] = g;
+                data[index * 3 + 2] = b;
+                return true;
+            }
+        }
+    }
+    return false;
 }
 
 void PPM::SetPixelHighRes(int x, int y, unsigned char r, unsigned char g, unsigned char b) {
@@ -80,11 +113,76 @@ float PPM::EdgeFunction(const Vec2 &v0, const Vec2 &v1, const Vec2 &v2) {
     return (v2.x - v0.x) * (v1.y - v0.y) - (v2.y - v0.y) * (v1.x - v0.x);
 }
 
+float PPM::InterpolateDepth(const Vec2 &p, const Vec2 &v0, const Vec2 &v1, const Vec2 &v2, float d0, float d1,
+                            float d2) {
+    float w0 = EdgeFunction(v1, v2, p);
+    float w1 = EdgeFunction(v2, v0, p);
+    float w2 = EdgeFunction(v0, v1, p);
+
+    float area = EdgeFunction(v0, v1, v2);
+
+    if (std::abs(area) < 1e-6f)
+        return d0;
+
+    // normalization, get the barycenter, the rate of triangles' area is the rate of barycenter's
+    w0 /= area;
+    w1 /= area;
+    w2 /= area;
+
+    return w0 * d0 + w1 * d1 + w2 * d2;
+}
+
+void PPM::RasterizeTriangleWithDepth(const Triangle &tri) {
+    // turn to screen position 
+    Vec2 v0 = WorldToScreen(tri.v_2[0]);
+    Vec2 v1 = WorldToScreen(tri.v_2[1]);
+    Vec2 v2 = WorldToScreen(tri.v_2[2]);
+
+    float d0 = tri.depth[0];
+    float d1 = tri.depth[1];
+    float d2 = tri.depth[2];
+
+    if (ss_factor > 1) {
+        v0.x *= ss_factor;
+        v0.y *= ss_factor;
+        v1.x *= ss_factor;
+        v1.y *= ss_factor;
+        v2.x *= ss_factor;
+        v2.y *= ss_factor;
+    }
+
+    int curWidth = ss_factor > 1 ? width * ss_factor : width;
+    int curHeight = ss_factor > 1 ? height * ss_factor : height;
+
+    // form a square to wrap the triangle to judge the pixels
+    // if one vectex is out of screen, compare it with border position
+    int minX = std::max(0, (int)std::min({v0.x, v1.x, v2.x}));
+    int minY = std::max(0, (int)std::min({v0.y, v1.y, v2.y}));
+    int maxX = std::min(curWidth - 1, (int)std::max({v0.x, v1.x, v2.x}));
+    int maxY = std::min(curHeight - 1, (int)std::max({v0.y, v1.y, v2.y}));
+
+    // traverse pixels in the square
+    for (int y = minY; y <= maxY; y++)
+        for (int x = minX; x <= maxX; x++) {
+            Vec2 p(x + 0.5f, y + 0.5f); // pixel origin
+
+            float w0 = EdgeFunction(v1, v2, p);
+            float w1 = EdgeFunction(v2, v0, p);
+            float w2 = EdgeFunction(v0, v1, p);
+
+            // when p is inside the triangle
+            if ((w0 >= 0 && w1 >= 0 && w2 >= 0) || (w0 <= 0 && w1 <= 0 && w2 <= 0)) {
+                float depth = InterpolateDepth(p, v0, v1, v2, d0, d1, d2);
+                SetPixelWithDepth(x, y, depth, tri.r, tri.g, tri.b);
+            }
+        }
+}
+
 void PPM::RasterizeTriangle(const Triangle &tri) {
-    // turn to screen position
-    Vec2 v0 = WorldToScreen(tri.v[0]);
-    Vec2 v1 = WorldToScreen(tri.v[1]);
-    Vec2 v2 = WorldToScreen(tri.v[2]);
+    // turn to screen position 
+    Vec2 v0 = WorldToScreen(tri.v_2[0]);
+    Vec2 v1 = WorldToScreen(tri.v_2[1]);
+    Vec2 v2 = WorldToScreen(tri.v_2[2]);
 
     if (ss_factor > 1) {
         v0.x *= ss_factor;
