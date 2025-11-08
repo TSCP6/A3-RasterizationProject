@@ -76,7 +76,7 @@ int main() {
         
         MeshCube cube2;
         cube2.SetPosition(Vec3(-0.7f, 0.3f, -0.5f));
-        cube2.SetRotation(Vec3(75.0f, 60.0f, 5.0f));
+        cube2.SetRotation(Vec3(175.0f, 60.0f, 5.0f));
         cube2.SetScale(Vec3(1.2f, 1.2f, 1.2f));
         cube2.SetColorMode(1);
         
