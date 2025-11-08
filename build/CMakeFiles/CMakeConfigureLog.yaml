@@ -24,7 +24,7 @@ events:
       The output was:
       0
       閫傜敤浜?.NET Framework MSBuild 鐗堟湰 17.14.23+b0019275e
-      鐢熸垚鍚姩鏃堕棿涓?2025/11/6 16:01:49銆?
+      鐢熸垚鍚姩鏃堕棿涓?2025/11/8 14:32:52銆?
       
       鑺傜偣 1 涓婄殑椤圭洰鈥淐:\\Users\\12841\\Desktop\\none\\Codes\\Game\\Solutions\\A3-RasterizationProject\\build\\CMakeFiles\\3.29.2\\CompilerIdCXX\\CompilerIdCXX.vcxproj鈥?榛樿鐩爣)銆?
       PrepareForBuild:
@@ -53,7 +53,7 @@ events:
           0 涓鍛?
           0 涓敊璇?
       
-      宸茬敤鏃堕棿 00:00:00.64
+      宸茬敤鏃堕棿 00:00:00.58
       
       
       Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.exe"
@@ -72,8 +72,8 @@ events:
     checks:
       - "Detecting CXX compiler ABI info"
     directories:
-      source: "C:/Users/12841/Desktop/none/Codes/Game/Solutions/A3-RasterizationProject/build/CMakeFiles/CMakeScratch/TryCompile-zmbraw"
-      binary: "C:/Users/12841/Desktop/none/Codes/Game/Solutions/A3-RasterizationProject/build/CMakeFiles/CMakeScratch/TryCompile-zmbraw"
+      source: "C:/Users/12841/Desktop/none/Codes/Game/Solutions/A3-RasterizationProject/build/CMakeFiles/CMakeScratch/TryCompile-w8prk8"
+      binary: "C:/Users/12841/Desktop/none/Codes/Game/Solutions/A3-RasterizationProject/build/CMakeFiles/CMakeScratch/TryCompile-w8prk8"
     cmakeVariables:
       CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /W3 /GR /EHsc"
       CMAKE_CXX_FLAGS_DEBUG: "/MDd /Zi /Ob0 /Od /RTC1"
@@ -82,40 +82,40 @@ events:
       variable: "CMAKE_CXX_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/12841/Desktop/none/Codes/Game/Solutions/A3-RasterizationProject/build/CMakeFiles/CMakeScratch/TryCompile-zmbraw'
+        Change Dir: 'C:/Users/12841/Desktop/none/Codes/Game/Solutions/A3-RasterizationProject/build/CMakeFiles/CMakeScratch/TryCompile-w8prk8'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_c9b7a.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_be4af.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
         閫傜敤浜?.NET Framework MSBuild 鐗堟湰 17.14.23+b0019275e
-        鐢熸垚鍚姩鏃堕棿涓?2025/11/6 16:01:50銆?
+        鐢熸垚鍚姩鏃堕棿涓?2025/11/8 14:32:53銆?
         
-        鑺傜偣 1 涓婄殑椤圭洰鈥淐:\\Users\\12841\\Desktop\\none\\Codes\\Game\\Solutions\\A3-RasterizationProject\\build\\CMakeFiles\\CMakeScratch\\TryCompile-zmbraw\\cmTC_c9b7a.vcxproj鈥?榛樿鐩爣)銆?
+        鑺傜偣 1 涓婄殑椤圭洰鈥淐:\\Users\\12841\\Desktop\\none\\Codes\\Game\\Solutions\\A3-RasterizationProject\\build\\CMakeFiles\\CMakeScratch\\TryCompile-w8prk8\\cmTC_be4af.vcxproj鈥?榛樿鐩爣)銆?
         PrepareForBuild:
-          姝ｅ湪鍒涘缓鐩綍鈥渃mTC_c9b7a.dir\\Debug\\鈥濄€?
+          姝ｅ湪鍒涘缓鐩綍鈥渃mTC_be4af.dir\\Debug\\鈥濄€?
           宸插惎鐢ㄧ粨鏋勫寲杈撳嚭銆傜紪璇戝櫒璇婃柇鐨勬牸寮忚缃皢鍙嶆槧閿欒灞傛缁撴瀯銆傛湁鍏宠缁嗕俊鎭紝璇峰弬闃?https://aka.ms/cpp/structured-output銆?
-          姝ｅ湪鍒涘缓鐩綍鈥淐:\\Users\\12841\\Desktop\\none\\Codes\\Game\\Solutions\\A3-RasterizationProject\\build\\CMakeFiles\\CMakeScratch\\TryCompile-zmbraw\\Debug\\鈥濄€?
-          姝ｅ湪鍒涘缓鐩綍鈥渃mTC_c9b7a.dir\\Debug\\cmTC_c9b7a.tlog\\鈥濄€?
+          姝ｅ湪鍒涘缓鐩綍鈥淐:\\Users\\12841\\Desktop\\none\\Codes\\Game\\Solutions\\A3-RasterizationProject\\build\\CMakeFiles\\CMakeScratch\\TryCompile-w8prk8\\Debug\\鈥濄€?
+          姝ｅ湪鍒涘缓鐩綍鈥渃mTC_be4af.dir\\Debug\\cmTC_be4af.tlog\\鈥濄€?
         InitializeBuildStatus:
-          姝ｅ湪鍒涘缓鈥渃mTC_c9b7a.dir\\Debug\\cmTC_c9b7a.tlog\\unsuccessfulbuild鈥濓紝鍥犱负宸叉寚瀹氣€淎lwaysCreate鈥濄€?
-          姝ｅ湪瀵光€渃mTC_c9b7a.dir\\Debug\\cmTC_c9b7a.tlog\\unsuccessfulbuild鈥濇墽琛?Touch 浠诲姟銆?
+          姝ｅ湪鍒涘缓鈥渃mTC_be4af.dir\\Debug\\cmTC_be4af.tlog\\unsuccessfulbuild鈥濓紝鍥犱负宸叉寚瀹氣€淎lwaysCreate鈥濄€?
+          姝ｅ湪瀵光€渃mTC_be4af.dir\\Debug\\cmTC_be4af.tlog\\unsuccessfulbuild鈥濇墽琛?Touch 浠诲姟銆?
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_c9b7a.dir\\Debug\\\\" /Fd"cmTC_c9b7a.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TP /errorReport:queue "C:\\Strawberry\\c\\share\\cmake-3.29\\Modules\\CMakeCXXCompilerABI.cpp"
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_be4af.dir\\Debug\\\\" /Fd"cmTC_be4af.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TP /errorReport:queue "C:\\Strawberry\\c\\share\\cmake-3.29\\Modules\\CMakeCXXCompilerABI.cpp"
           鐢ㄤ簬 x64 鐨?Microsoft (R) C/C++ 浼樺寲缂栬瘧鍣?19.44.35219 鐗?
           鐗堟潈鎵€鏈?C) Microsoft Corporation銆備繚鐣欐墍鏈夋潈鍒┿€?
-          cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_c9b7a.dir\\Debug\\\\" /Fd"cmTC_c9b7a.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TP /errorReport:queue "C:\\Strawberry\\c\\share\\cmake-3.29\\Modules\\CMakeCXXCompilerABI.cpp"
+          cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_be4af.dir\\Debug\\\\" /Fd"cmTC_be4af.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TP /errorReport:queue "C:\\Strawberry\\c\\share\\cmake-3.29\\Modules\\CMakeCXXCompilerABI.cpp"
           CMakeCXXCompilerABI.cpp
         Link:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\12841\\Desktop\\none\\Codes\\Game\\Solutions\\A3-RasterizationProject\\build\\CMakeFiles\\CMakeScratch\\TryCompile-zmbraw\\Debug\\cmTC_c9b7a.exe" /INCREMENTAL /ILK:"cmTC_c9b7a.dir\\Debug\\cmTC_c9b7a.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/12841/Desktop/none/Codes/Game/Solutions/A3-RasterizationProject/build/CMakeFiles/CMakeScratch/TryCompile-zmbraw/Debug/cmTC_c9b7a.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/12841/Desktop/none/Codes/Game/Solutions/A3-RasterizationProject/build/CMakeFiles/CMakeScratch/TryCompile-zmbraw/Debug/cmTC_c9b7a.lib" /MACHINE:X64  /machine:x64 cmTC_c9b7a.dir\\Debug\\CMakeCXXCompilerABI.obj
-          cmTC_c9b7a.vcxproj -> C:\\Users\\12841\\Desktop\\none\\Codes\\Game\\Solutions\\A3-RasterizationProject\\build\\CMakeFiles\\CMakeScratch\\TryCompile-zmbraw\\Debug\\cmTC_c9b7a.exe
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\12841\\Desktop\\none\\Codes\\Game\\Solutions\\A3-RasterizationProject\\build\\CMakeFiles\\CMakeScratch\\TryCompile-w8prk8\\Debug\\cmTC_be4af.exe" /INCREMENTAL /ILK:"cmTC_be4af.dir\\Debug\\cmTC_be4af.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/12841/Desktop/none/Codes/Game/Solutions/A3-RasterizationProject/build/CMakeFiles/CMakeScratch/TryCompile-w8prk8/Debug/cmTC_be4af.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/12841/Desktop/none/Codes/Game/Solutions/A3-RasterizationProject/build/CMakeFiles/CMakeScratch/TryCompile-w8prk8/Debug/cmTC_be4af.lib" /MACHINE:X64  /machine:x64 cmTC_be4af.dir\\Debug\\CMakeCXXCompilerABI.obj
+          cmTC_be4af.vcxproj -> C:\\Users\\12841\\Desktop\\none\\Codes\\Game\\Solutions\\A3-RasterizationProject\\build\\CMakeFiles\\CMakeScratch\\TryCompile-w8prk8\\Debug\\cmTC_be4af.exe
         FinalizeBuildStatus:
-          姝ｅ湪鍒犻櫎鏂囦欢鈥渃mTC_c9b7a.dir\\Debug\\cmTC_c9b7a.tlog\\unsuccessfulbuild鈥濄€?
-          姝ｅ湪瀵光€渃mTC_c9b7a.dir\\Debug\\cmTC_c9b7a.tlog\\cmTC_c9b7a.lastbuildstate鈥濇墽琛?Touch 浠诲姟銆?
-        宸插畬鎴愮敓鎴愰」鐩€淐:\\Users\\12841\\Desktop\\none\\Codes\\Game\\Solutions\\A3-RasterizationProject\\build\\CMakeFiles\\CMakeScratch\\TryCompile-zmbraw\\cmTC_c9b7a.vcxproj鈥?榛樿鐩爣)鐨勬搷浣溿€?
+          姝ｅ湪鍒犻櫎鏂囦欢鈥渃mTC_be4af.dir\\Debug\\cmTC_be4af.tlog\\unsuccessfulbuild鈥濄€?
+          姝ｅ湪瀵光€渃mTC_be4af.dir\\Debug\\cmTC_be4af.tlog\\cmTC_be4af.lastbuildstate鈥濇墽琛?Touch 浠诲姟銆?
+        宸插畬鎴愮敓鎴愰」鐩€淐:\\Users\\12841\\Desktop\\none\\Codes\\Game\\Solutions\\A3-RasterizationProject\\build\\CMakeFiles\\CMakeScratch\\TryCompile-w8prk8\\cmTC_be4af.vcxproj鈥?榛樿鐩爣)鐨勬搷浣溿€?
         
         宸叉垚鍔熺敓鎴愩€?
             0 涓鍛?
             0 涓敊璇?
         
-        宸茬敤鏃堕棿 00:00:00.62
+        宸茬敤鏃堕棿 00:00:00.55
         
       exitCode: 0
   -

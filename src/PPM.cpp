@@ -113,34 +113,11 @@ float PPM::EdgeFunction(const Vec2 &v0, const Vec2 &v1, const Vec2 &v2) {
     return (v2.x - v0.x) * (v1.y - v0.y) - (v2.y - v0.y) * (v1.x - v0.x);
 }
 
-float PPM::InterpolateDepth(const Vec2 &p, const Vec2 &v0, const Vec2 &v1, const Vec2 &v2, float d0, float d1,
-                            float d2) {
-    float w0 = EdgeFunction(v1, v2, p);
-    float w1 = EdgeFunction(v2, v0, p);
-    float w2 = EdgeFunction(v0, v1, p);
-
-    float area = EdgeFunction(v0, v1, v2);
-
-    if (std::abs(area) < 1e-6f)
-        return d0;
-
-    // normalization, get the barycenter, the rate of triangles' area is the rate of barycenter's
-    w0 /= area;
-    w1 /= area;
-    w2 /= area;
-
-    return w0 * d0 + w1 * d1 + w2 * d2;
-}
-
 void PPM::RasterizeTriangleWithDepth(const Triangle &tri) {
     // turn to screen position 
     Vec2 v0 = WorldToScreen(tri.v_2[0]);
     Vec2 v1 = WorldToScreen(tri.v_2[1]);
     Vec2 v2 = WorldToScreen(tri.v_2[2]);
-
-    float d0 = tri.depth[0];
-    float d1 = tri.depth[1];
-    float d2 = tri.depth[2];
 
     if (ss_factor > 1) {
         v0.x *= ss_factor;
@@ -161,6 +138,10 @@ void PPM::RasterizeTriangleWithDepth(const Triangle &tri) {
     int maxX = std::min(curWidth - 1, (int)std::max({v0.x, v1.x, v2.x}));
     int maxY = std::min(curHeight - 1, (int)std::max({v0.y, v1.y, v2.y}));
 
+    float area = EdgeFunction(v0, v1, v2);
+    if(area <= 0) return;
+    if(std::abs(area) < 1e-6f) return;
+
     // traverse pixels in the square
     for (int y = minY; y <= maxY; y++)
         for (int x = minX; x <= maxX; x++) {
@@ -172,8 +153,30 @@ void PPM::RasterizeTriangleWithDepth(const Triangle &tri) {
 
             // when p is inside the triangle
             if ((w0 >= 0 && w1 >= 0 && w2 >= 0) || (w0 <= 0 && w1 <= 0 && w2 <= 0)) {
-                float depth = InterpolateDepth(p, v0, v1, v2, d0, d1, d2);
-                SetPixelWithDepth(x, y, depth, tri.r, tri.g, tri.b);
+                float b0 = w0 / area;
+                float b1 = w1 / area;
+                float b2 = w2 / area;
+
+                // perspective coreection: interpolate 1/w and z/w，then recover z_ndc
+                float interp_wrecip = b0 * tri.w_clip[0] + b1 * tri.w_clip[1] + b2 * tri.w_clip[2];
+                float interp_zoverw  = b0 * tri.depth_over_w[0] + b1 * tri.depth_over_w[1] + b2 * tri.depth_over_w[2];
+
+                float z_ndc = (interp_wrecip > 1e-6f) ? (interp_zoverw / interp_wrecip) : 1.0f;
+                float depth01 = (z_ndc + 1.0f) * 0.5f; // cast to [0,1]
+
+                // correct the color
+                unsigned char final_r = tri.r, final_g = tri.g, final_b = tri.b;
+                if (interp_wrecip > 1e-6f) {
+                    float r_over_w = b0 * (tri.vr[0] * tri.w_clip[0]) + b1 * (tri.vr[1] * tri.w_clip[1]) + b2 * (tri.vr[2] * tri.w_clip[2]);
+                    float g_over_w = b0 * (tri.vg[0] * tri.w_clip[0]) + b1 * (tri.vg[1] * tri.w_clip[1]) + b2 * (tri.vg[2] * tri.w_clip[2]);
+                    float b_over_w = b0 * (tri.vb[0] * tri.w_clip[0]) + b1 * (tri.vb[1] * tri.w_clip[1]) + b2 * (tri.vb[2] * tri.w_clip[2]);
+
+                    final_r = static_cast<unsigned char>(std::clamp(r_over_w / interp_wrecip, 0.0f, 255.0f));
+                    final_g = static_cast<unsigned char>(std::clamp(g_over_w / interp_wrecip, 0.0f, 255.0f));
+                    final_b = static_cast<unsigned char>(std::clamp(b_over_w / interp_wrecip, 0.0f, 255.0f));
+                }
+
+                SetPixelWithDepth(x, y, depth01, final_r, final_g, final_b);
             }
         }
 }
@@ -235,10 +238,12 @@ bool WritePPM(const std::vector<unsigned char> &buf, int w, int h, const std::st
     return true;
 }
 
+//save SSAA or no-SSAA 's final ppm file
 bool PPM::SaveFinalPPM(const std::string &filename) {
     return WritePPM(data, width, height, filename);
 }
 
+//save the super sample ppm file
 bool PPM::SaveRawPPM(const std::string &filename) {
     return WritePPM(hr_buffer, width * ss_factor, height * ss_factor, filename);
 }

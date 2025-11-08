@@ -30,7 +30,6 @@ class Matrix {
 
     // perspective matrix
     static Matrix perspective(float fovy, float aspect, float near, float far);
-    static Matrix ortho(float left, float right, float bottom, float top, float near, float far);
 
   private:
     static void matrixMultiply(const Matrix &mat1, const Matrix &mat2, Matrix &res);

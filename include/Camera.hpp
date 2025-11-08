@@ -28,7 +28,6 @@ class Camera {
 
     Matrix getProjectionMatrix() const;
 
-    Matrix getViewProjectionMatrix() const;
 
     void setPosition(const Vec3 &pos);
 

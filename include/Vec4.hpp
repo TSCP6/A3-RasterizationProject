@@ -34,7 +34,6 @@ class Vec4 {
     Vec4 normalize() const;
 
     Vec4 perspectiveDivide() const;
-    Vec3 toNDC() const;
 
     // Comparison
     bool operator==(const Vec4 &other) const noexcept;

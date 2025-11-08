@@ -13,12 +13,12 @@ class MeshCube {
     std::vector<Vertex> vertices;
     std::vector<unsigned int> tri_index;
     
-    Vec3 m_position;
-    Vec3 m_rotation;  // 欧拉角（度）
-    Vec3 m_scale;
+    Vec3 position;
+    Vec3 rotation; 
+    Vec3 scale;
     
-    int m_color_mode;  // 0=渐变, 1=棋盘格, 2=纯色
-    unsigned char m_solid_r, m_solid_g, m_solid_b;
+    int color_mode;  // 0=gradient, 1=checker, 2=pure
+    unsigned char solid_r, solid_g, solid_b;
     
     void GenerateGradientColors(std::vector<Triangle>& triangles);
     void GenerateCheckeredColors(std::vector<Triangle>& triangles);
@@ -27,16 +27,13 @@ class MeshCube {
   public:
     MeshCube();
     
-    void createCube();
     Matrix GetModelMatrix() const;
     std::vector<Triangle> GetTriangles();
     
-    // 变换设置
     void SetPosition(const Vec3& pos);
     void SetRotation(const Vec3& rot);
     void SetScale(const Vec3& scale);
     
-    // 颜色模式
     void SetColorMode(int mode);
     void SetSolidColor(unsigned char r, unsigned char g, unsigned char b);
 };

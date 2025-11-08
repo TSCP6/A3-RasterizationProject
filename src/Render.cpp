@@ -3,8 +3,8 @@
 #include <algorithm>
 #include <limits>
 
-Render::Render(int width, int height) : m_width(width), m_height(height) {
-    m_depth_buffer.resize(width * height);
+Render::Render(int width, int height) : width(width), height(height) {
+    depth_buffer.resize(width * height);
     ClearDepthBuffer();
 }
 
@@ -12,13 +12,13 @@ Render::~Render() {
 }
 
 void Render::ClearDepthBuffer() {
-    std::fill(m_depth_buffer.begin(), m_depth_buffer.end(), std::numeric_limits<float>::infinity());
+    std::fill(depth_buffer.begin(), depth_buffer.end(), std::numeric_limits<float>::infinity());
 }
 
 void Render::SetViewport(int width, int height) {
-    m_width = width;
-    m_height = height;
-    m_depth_buffer.resize(width * height);
+    width = width;
+    height = height;
+    depth_buffer.resize(width * height);
     ClearDepthBuffer();
 }
 
@@ -43,14 +43,21 @@ void Render::RenderMesh(MeshCube &mesh, Camera &camera, PPM &ppm) {
             Vec4 clip_space = mvp * vertex;
 
             if (std::abs(clip_space.w) > 1e-6f) {
-                transformed_tri.v_3[i].x = clip_space.x / clip_space.w;
-                transformed_tri.v_3[i].y = clip_space.y / clip_space.w;
-                transformed_tri.v_3[i].z = clip_space.z / clip_space.w;
+                float inv_w = 1.0f / clip_space.w;
+
+                transformed_tri.v_3[i].x = clip_space.x * inv_w;
+                transformed_tri.v_3[i].y = clip_space.y * inv_w;
+                transformed_tri.v_3[i].z = clip_space.z * inv_w;
+
+                transformed_tri.w_clip[i] = inv_w;
+                transformed_tri.depth_over_w[i] = clip_space.z * inv_w;
 
                 // map the depth into [0,1]
                 transformed_tri.depth[i] = (clip_space.z / clip_space.w + 1.0f) * 0.5f;
             } else {
                 transformed_tri.depth[i] = std::numeric_limits<float>::infinity();
+                transformed_tri.w_clip[i] = 0.0f;
+                transformed_tri.depth_over_w[i] = 0.0f;
             }
         }
 
@@ -80,7 +87,7 @@ void Render::RenderMesh(MeshCube &mesh, Camera &camera, PPM &ppm) {
         // NDC is [-1,1]×[-1,1]，map to [0,1]×[0,1]
         for (int i = 0; i < 3; i++) {
             float screen_x = (transformed_tri.v_3[i].x + 1.0f) * 0.5f;
-            float screen_y = (1.0f - transformed_tri.v_3[i].y) * 0.5f;  // 翻转Y轴
+            float screen_y = (1.0f - transformed_tri.v_3[i].y) * 0.5f; // 翻转Y轴
             transformed_tri.v_2[i] = Vec2(screen_x, screen_y);
         }
 

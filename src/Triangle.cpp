@@ -1,10 +1,15 @@
 #include "Triangle.hpp"
 
+#include <limits>
+
 Triangle::Triangle() : r(255), g(255), b(255) {
     for (int i = 0; i < 3; i++) {
         v_2[i] = Vec2(0, 0);
         v_3[i] = Vec3(0, 0, 0);
-        depth[i] = 0.0f;
+        depth[i] = std::numeric_limits<float>::infinity();
+        w_clip[i] = 0.0f;
+        depth_over_w[i] = 0.0f;
+        vr[i] = vb[i] = vg[i] = 255;
     }
 }
 

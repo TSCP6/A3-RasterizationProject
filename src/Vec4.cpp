@@ -58,11 +58,3 @@ Vec4 Vec4::perspectiveDivide() const {
     float invW = 1.0f / w;
     return Vec4(x * invW, y * invW, z * invW, 1.0f);
 }
-
-Vec3 Vec4::toNDC() const {
-    if (std::abs(w) < 1e-6f) {
-        return Vec3(x, y, z);
-    }
-    float invW = 1.0f / w;
-    return Vec3(x * invW, y * invW, z * invW);
-}

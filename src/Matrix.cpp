@@ -170,18 +170,3 @@ Matrix Matrix::perspective(float fovy,   // field of view y, the vertical view a
 
     return m;
 }
-
-//Orthographic Projection
-Matrix Matrix::ortho(float left, float right, float bottom, float top, float near, float far) {
-    Matrix m;
-    
-    m.mat[0][0] = 2.0f / (right - left);
-    m.mat[1][1] = 2.0f / (top - bottom);
-    m.mat[2][2] = -2.0f / (far - near);
-    
-    m.mat[0][3] = -(right + left) / (right - left);
-    m.mat[1][3] = -(top + bottom) / (top - bottom);
-    m.mat[2][3] = -(far + near) / (far - near);
-    
-    return m;
-}
